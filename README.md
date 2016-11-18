@@ -14,7 +14,22 @@ You'll need to have the following prerequisites **installed** on your workstatio
 vagrant box add bento/ubuntu-16.04
 ```
 
-## Quick Start
+## What is included?
+
+- Unzip
+- Curl
+- Git
+- PHP 7
+- Apache
+- MySql
+- PhpMyAdmin
+- Wordpress
+- Wp-cli
+- Zsh
+- Oh-My-ZSH
+- Terminal Fonts
+
+## Quick Start :checkered_flag:
 
 
 ```bash
