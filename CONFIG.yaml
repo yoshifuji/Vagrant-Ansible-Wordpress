@@ -40,10 +40,17 @@ vms:
     cpus               : 2
 
   # | ······ Defining Netword
-    network :
+    private_network :
       ip_private       : 192.168.70.70
-      ip_public        : 10.0.0.70
+      # auto_config      : false
+      # type             : dhcp
+
+    public_network :
+      # ip_public        : auto # Basic Config
+      # ip_public        : true # Using the DHCP Assigned Default Route
+      # ip_public        : 192.168.0.70
       # bridge           : 'eth0'
+
 
   # | ······ Defining a Forwarded Port
     ports :
