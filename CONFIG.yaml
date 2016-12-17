@@ -1,10 +1,24 @@
 ---
 # | ............................................................................
+# | Fast Config - Ths is the most basic configuration for a fast deploy
+# | ............................................................................
+
+# |                              ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+local_domain : &local_domain    'mywordpress.local'
+private_ip   : &private_ip      '192.168.70.70'
+machine_name : &machine_name    'vag-wordpress'
+machine_ram  : &machine_ram     'auto'
+machine_cpu  : &machine_cpu     'auto'
+# |                              ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+
+# | ............................................................................
 # | Config Ansible
 # | ............................................................................
 
 # | ······ Set Domain URL
-wpDomain          : 'mywordpress.local'
+wpDomain          : *local_domain
 
 # | ······ MySQL Config
 mysqlUser         : 'root'
@@ -32,22 +46,39 @@ group             : 'vagrant'
 # | ............................................................................
 
 vms:
-  - name               : vag-wordpress
+  - name               : *machine_name
     box                : bento/ubuntu-16.04
-    box_version        : 2.2.9
+    box_version        : 2.3.1
     box_check_update   : false
-    ram                : 2048
-    cpus               : 2
+    ram                : *machine_ram
+    cpus               : *machine_cpu
 
   # | ······ Defining Netword
     private_network :
-      ip_private       : 192.168.70.70
+
+      # | Option 1 - Specify a static IP address for the machine
+      ip_private       : *private_ip
+
+      # | Option 2 - If you want to manually configure the network interface
+      # | yourself, you can disable Vagrant's auto-configure feature.
       # auto_config      : false
+
+      # | Option 3 - The easiest way to use a private network is to allow the IP
+      # | to be assigned via DHCP.
       # type             : dhcp
 
     public_network :
-      # ip_public        : auto # Basic Config
-      # ip_public        : true # Using the DHCP Assigned Default Route
+
+      # | Option 1 - Static IP bridge
+      # ip_public        : 192.168.0.70
+
+      # | Option 2 - Basic Config public_network
+      # ip_public        : auto
+
+      # | Option 3 - Using the DHCP Assigned Default Route
+      # ip_public        : true
+
+      # | Option 4 - Static IP select bridge
       # ip_public        : 192.168.0.70
       # bridge           : 'eth0'
 
