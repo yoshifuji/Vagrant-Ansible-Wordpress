@@ -47,8 +47,9 @@ group             : 'vagrant'
 
 vms:
   - name               : *machine_name
-    box                : bento/ubuntu-16.04
-    box_version        : 2.3.1
+    box                : Mayccoll/Vagrant-Ansible-Wordpress
+    # box                : bento/ubuntu-16.04
+    # box_version        : 2.3.1
     box_check_update   : false
     ram                : *machine_ram
     cpus               : *machine_cpu

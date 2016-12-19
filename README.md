@@ -2,6 +2,9 @@
 
 ![Vagrant-Ansible-Wordpress](http://i.imgur.com/0Pu2E9A.png)
 
+This is a WordPress development environment that uses Vagant and Ansible to start developing in less than 5 minutes.
+In addition to this the LAMP environment allows to serve any type of PHP application (```html``` folder).
+
 ## Prerequisites
 
 You'll need to have the following prerequisites **installed** on your workstation:
@@ -11,20 +14,23 @@ You'll need to have the following prerequisites **installed** on your workstatio
 * [Ansible](http://www.ansibleworks.com)
 * Add an appropriate vagrant box (optional)
 ```bash
+# Defalut
+vagrant box add Mayccoll/Vagrant-Ansible-Wordpress.git
+# or
 vagrant box add bento/ubuntu-16.04
 ```
 
 ## What is included?
 
+- **Wordpress**
+- **PHP 7**
+- **Apache**
+- **MySql**
+- **PhpMyAdmin**
+- Wp-cli
 - Unzip
 - Curl
 - Git
-- PHP 7
-- Apache
-- MySql
-- PhpMyAdmin
-- Wordpress
-- Wp-cli
 - Zsh
 - Oh-My-ZSH
 - Terminal Fonts
@@ -36,6 +42,8 @@ vagrant box add bento/ubuntu-16.04
   $ git clone git@github.com:Mayccoll/Vagrant-Ansible-Wordpress.git
   $ cd Vagrant-Ansible-Wordpress
   $ vagrant up
+
+  open http://192.168.70.70
 ```
 
 **DONE!!!**
@@ -70,26 +78,27 @@ $ echo "\n192.168.70.70     mywordpress.local" | sudo tee -a /etc/hosts
 
 Inside your repository in ```./www/wordpress/``` folder you will find all the wordpress files
 
-```
+```bash
 .
 ├── ansible
 ├── config.yaml
 ├── README
+├── html # (You can serve php files here port 8888)
 ├── share
 ├── Vagrantfile
 └── www
     └── wordpress
+        ├── wp-admin
+        ├── wp-content
+        ├── wp-includes
         ├── index.php
         ├── license.txt
         ├── readme.html
         ├── wp-activate.php
-        ├── wp-admin
         ├── wp-blog-header.php
         ├── wp-comments-post.php
         ├── wp-config-sample.php
-        ├── wp-content
         ├── wp-cron.php
-        ├── wp-includes
         ├── wp-links-opml.php
         ├── wp-load.php
         ├── wp-login.php
@@ -100,9 +109,21 @@ Inside your repository in ```./www/wordpress/``` folder you will find all the wo
         └── xmlrpc.php
 
 ```
-## Advanced
+## Fast Configuration
 
-## Configuration
+For fast configuration you can modify this variables in ```CONFIG.yml``` file.
+
+```ỳaml
+# |                              ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+local_domain : &local_domain    'mywordpress.local'
+private_ip   : &private_ip      '192.168.70.70'
+machine_name : &machine_name    'vag-wordpress'
+machine_ram  : &machine_ram     'auto'
+machine_cpu  : &machine_cpu     'auto'
+# |                              ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+```
+
+## Advanced Configuration
 
 There are one configuration file ```CONFIG.yml```.
 
@@ -209,7 +230,7 @@ http://192.168.70.99:8088
 - **Password:** vagrant
 
 
-## www
+## LAMP
 
 http://192.168.70.99:8080
 
