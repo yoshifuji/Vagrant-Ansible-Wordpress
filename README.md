@@ -15,7 +15,7 @@ You'll need to have the following prerequisites **installed** on your workstatio
 * Add an appropriate vagrant box (optional)
 ```bash
 # Defalut
-vagrant box add Mayccoll/Vagrant-Ansible-Wordpress.git
+vagrant box add Mayccoll/Vagrant-Ansible-Wordpress
 # or
 vagrant box add bento/ubuntu-16.04
 ```
