@@ -5,6 +5,9 @@
 This is a WordPress development environment that uses Vagant and Ansible to start developing in less than 5 minutes.
 In addition to this the LAMP environment allows to serve any type of PHP application (```html``` folder).
 
+NOTE: I created my own box based on bento box, because ansible was taking too long.
+This box was builded using this repo and nothing more.
+
 ## Prerequisites
 
 You'll need to have the following prerequisites **installed** on your workstation:
@@ -50,7 +53,7 @@ vagrant box add bento/ubuntu-16.04
 
 Once the process is finished you will see the installation data in your terminal
 
-![Terminal](http://i.imgur.com/CFPQ59Y.png)
+![Terminal](http://imgur.com/1RJ0cLU.png)
 
 #### Install wordpress
 

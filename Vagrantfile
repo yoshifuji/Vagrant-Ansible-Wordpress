@@ -16,8 +16,6 @@ dir = File.dirname(File.expand_path(__FILE__))
 # |
 servers       = YAML.load_file("#{dir}/CONFIG.yaml")
 
-# playbook_file = YAML.load_file("#{dir}/config.ansible.yml")
-
 # |
 # | Set values for message
 # |
@@ -240,9 +238,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # | ············································································
 
             srv.vm.post_up_message = " \e[0;37m
-················································································
-    WORDPRESS > Install
-················································································
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░   WORDPRESS > Install                                  ░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
   Url            : \e[0;33mhttp://#{server['private_network']['ip_private']}\e[0;37m
   Url (optional) : \e[0;33mhttp://#{$wpDomain}\e[0;37m
@@ -251,24 +249,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   Database User  : \e[0;33m#{$db_user}\e[0;37m
   Database Pass  : \e[0;33m#{$db_pass}\e[0;37m
 
-  Mysql User     : #{$mysql_user}
-  Mysql Pass     : #{$mysql_pass}
+  Mysql User     : \e[0;33m#{$mysql_user}\e[0;37m
+  Mysql Pass     : \e[0;33m#{$mysql_pass}\e[0;37m
 
-················································································
-  Edit Hosts Files (optional)
-················································································
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░ Edit Hosts Files (optional)                            ░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
   In your terminal copy and run this command:
-  \e[0;33mecho \"\\n#{server['private_network']['ip_private']}     #{$wpDomain}\" | sudo tee -a /etc/hosts\e[0;37m
+\e[0;33mecho \"\\n#{server['private_network']['ip_private']} #{$wpDomain}\" | sudo tee -a /etc/hosts\e[0;37m
 
-················································································
-  VAGRANT VM
-················································································
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+░  VAGRANT VM                                            ░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 
-  Vm Name    : #{server['name']}
+  Vm Name    : \e[0;33m#{server['name']}\e[0;37m
   Private ip : \e[0;33m#{server["private_network"]["ip_private"]}\e[0;37m
 
-················································································
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 \e[32m"
 
         end
