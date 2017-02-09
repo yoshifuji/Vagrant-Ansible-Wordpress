@@ -313,3 +313,8 @@ $ sudo a2enmod ssl
 ```bash
 $ sudo service apache2 restart
 ```
+
+- Go to:
+
+    - https://192.168.70.70
+    - https://mywordpress.local (optional)
