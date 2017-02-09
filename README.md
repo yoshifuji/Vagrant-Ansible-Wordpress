@@ -227,7 +227,7 @@ You can config wordpress database, user and password in ```CONFIG.yml```
 
 ## PhpMyAdmin
 
-http://192.168.70.99:8088
+http://192.168.70.70:8888
 
 - **Username:** wordpress
 - **Password:** vagrant
@@ -235,6 +235,67 @@ http://192.168.70.99:8088
 
 ## LAMP
 
-http://192.168.70.99:8080
+http://192.168.70.70:8080
 
 Local folder: ```./html```
+
+
+##  Create a SSL Certificate
+
+- Go into vagrant vm
+
+```
+$ vagrant ssh
+```
+
+- Create ssl Dir
+
+```bash
+$ sudo mkdir /etc/apache2/ssl
+```
+
+- Create ssl certificate
+
+```bash
+$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache.key -out /etc/apache2/ssl/apache.crt
+```
+
+- Add Virtual Host in the ```vhost.conf``` file
+
+```bash
+$ sudo vim /etc/apache2/sites-available/vhost.conf
+```
+
+```xml
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+
+    DocumentRoot /var/www/wordpress
+    <Directory /var/www/wordpress/>
+        Options -Indexes +Includes +FollowSymLinks +Multiviews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog /var/log/apache2/error.log
+    CustomLog /var/log/apache2/access.log combined
+
+    SSLEngine on
+    SSLCertificateFile  /etc/apache2/ssl/apache.crt
+    SSLCertificateKeyFile  /etc/apache2/ssl/apache.key
+    SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown
+</VirtualHost>
+```
+
+- Enable ssl mod
+
+```bash
+$ sudo a2enmod ssl
+```
+
+- Restart Apache
+
+```bash
+$ sudo service apache2 restart
+```
