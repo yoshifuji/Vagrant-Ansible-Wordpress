@@ -8,6 +8,20 @@ In addition to this the LAMP environment allows to serve any type of PHP applica
 NOTE: I created my own box based on bento box, because ansible was taking too long.
 This box was builded using this repo and nothing more.
 
+## Readme Index
+
+- [Prerequisites](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#prerequisites)
+- [What is included?](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#what-is-included)
+- [Quick Start](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#quick-start-checkered_flag)
+- [Fast Configuration](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#fast-configuration)
+- [Advanced Configuration](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#advanced-configuration)
+- [Ansible](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#ansible)
+- [PhpMyAdmin](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#phpmyadmin)
+- [LAMP](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#lamp)
+- **[Create a SSL Certificate](https://github.com/Mayccoll/Vagrant-Ansible-Wordpress#create-a-ssl-certificate)**
+
+
+
 ## Prerequisites
 
 You'll need to have the following prerequisites **installed** on your workstation:
