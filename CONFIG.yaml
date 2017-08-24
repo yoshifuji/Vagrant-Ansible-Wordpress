@@ -7,8 +7,9 @@
 local_domain : &local_domain    'mywordpress.local'
 private_ip   : &private_ip      '192.168.70.70'
 machine_name : &machine_name    'vag-wordpress'
-machine_ram  : &machine_ram     'auto'
-machine_cpu  : &machine_cpu     'auto'
+machine_ram  : &machine_ram     '2048M' # 2048M
+machine_cpu  : &machine_cpu     '1' # 1
+vagrant_box  : &vagrant_box     'Mayccoll/Vagrant-Ansible-Wordpress' # bento/ubuntu-16.04
 # |                              ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
 # | ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
@@ -45,9 +46,8 @@ group             : 'vagrant'
 
 vms:
   - name               : *machine_name
-    box                : Mayccoll/Vagrant-Ansible-Wordpress
-    # box                : bento/ubuntu-16.04
-    # box_version        : 2.3.1
+    box                : *vagrant_box
+    # box_version        : 201708.22.0
     box_check_update   : false
     ram                : *machine_ram
     cpus               : *machine_cpu
