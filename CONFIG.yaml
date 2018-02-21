@@ -7,7 +7,7 @@
 local_domain : &local_domain    'mywordpress.local'
 private_ip   : &private_ip      '192.168.70.70'
 machine_name : &machine_name    'vag-wordpress'
-machine_ram  : &machine_ram     '2048M' # auto
+machine_ram  : &machine_ram     '2048' # auto
 machine_cpu  : &machine_cpu     '1' # auto
 vagrant_box  : &vagrant_box     'Mayccoll/Vagrant-Ansible-Wordpress' # bento/ubuntu-16.04
 # |                              ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
