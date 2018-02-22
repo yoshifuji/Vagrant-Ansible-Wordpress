@@ -18,7 +18,7 @@
 # ### TASK
 # ··············································································
 
-  tasks               :
+  tasks :
 
 # ··············································································
 # ### Update
@@ -78,18 +78,18 @@
         state    : latest
       with_items :
         - php7.0
+        - php7.0-cgi
         - php7.0-cli
         - php7.0-curl
         - php7.0-gd
-        - php7.0-mysql
-        - php7.0-xmlrpc
-        - php7.0-json
-        - php7.0-cgi
-        - php-imagick
-        - php7.0-mbstring
         - php7.0-intl
-        - php7.0-zip
+        - php7.0-json
+        - php7.0-mbstring
+        - php7.0-mysql
         - php7.0-xml
+        - php7.0-xmlrpc
+        - php7.0-zip
+        - php-imagick
 
 
 
@@ -314,6 +314,16 @@
         dest    : "{{ wp_path }}/wordpress/"
         mode    : 0750
 
+    - name      : Download All in one migration wordpress plugin
+      get_url   :
+        url     : https://downloads.wordpress.org/plugin/all-in-one-wp-migration.6.63.zip
+        dest    : "{{ wp_path }}/all-in-one-wp-migration.zip"
+
+    - name      : Unzip All in one migration wordpress plugin
+      unarchive :
+        src     : "{{ wp_path }}/all-in-one-wp-migration.zip"
+        dest    : "{{ wp_path }}/wordpress//wp-content/plugins"
+        copy    : no
 
 # ··············································································
     # ### Set up virtual host
@@ -397,8 +407,8 @@
 
 # ··· Create file .zshrc
     - name      : Create file .zshrc
-      get_url   :
-        url     : "https://raw.githubusercontent.com/Mayccoll/Linux-Utils/master/Install_Files/zshrc"
+      template  :
+        src     : "templates/zshrc"
         dest    : "{{ home }}/.zshrc"
 
     - name      : Change .zshrc owner and group
@@ -436,22 +446,6 @@
         group   : "{{ group }}"
         state   : directory
         recurse : yes
-
-
-# ··· Add zsh git prompt to .zshrc
-    - name      : Get zsh git prompt config file
-      get_url   :
-        url     : "https://raw.githubusercontent.com/Mayccoll/Linux-Utils/master/Install_Files/git-prompt"
-        dest    : "{{ home }}/git-prompt"
-
-    - name      : Add zsh git prompt config file to .zshrc
-      shell     : "cat {{ home }}/git-prompt >> {{ home }}/.zshrc"
-
-    - name      : Remove git-prompt
-      file      :
-        state   : absent
-        path    : "{{ home }}/git-prompt"
-
 
 # ··· Install Terminal Fonts
     - name      : Install Terminal Fonts
@@ -500,10 +494,6 @@
         state   : present
 
 
-
- # ··············································································
-     # ### Handlers
- # ··············································································
 
 # ··············································································
     # ### Handlers
