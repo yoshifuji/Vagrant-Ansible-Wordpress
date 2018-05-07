@@ -30,6 +30,7 @@
     - import_tasks: playbooks/virtualhost.yml
     - import_tasks: playbooks/wp-cli.yml
     - import_tasks: playbooks/zsh.yml
+    - import_tasks: playbooks/locale-fix.yml
 
 
 
