@@ -14,7 +14,7 @@ dir = File.dirname(File.expand_path(__FILE__))
 # |
 # | Read YAML files
 # |
-servers       = YAML.load_file("#{dir}/CONFIG.yaml")
+servers       = YAML.load_file("#{dir}/CONFIG.yml")
 
 # |
 # | Set values for message
