@@ -6,30 +6,30 @@
 
 
   vars_files:
-    - '../CONFIG.yaml'
+    - '../CONFIG.yml'
 
 
   pre_tasks:
-    - import_tasks: playbooks/python.yaml
+    - import_tasks: playbooks/python.yml
 
 # ··············································································
 # ### TASK
 # ··············································································
 
   tasks :
-    - import_tasks: playbooks/update.yaml
-    - import_tasks: playbooks/unzip.yaml
-    - import_tasks: playbooks/curl.yaml
-    - import_tasks: playbooks/git.yaml
-    - import_tasks: playbooks/php7-1.yaml
-    - import_tasks: playbooks/apache.yaml
-    - import_tasks: playbooks/mysql.yaml
-    - import_tasks: playbooks/phpmyadmin.yaml
-    - import_tasks: playbooks/vagrant-user.yaml
-    - import_tasks: playbooks/wordpress.yaml
-    - import_tasks: playbooks/virtualhost.yaml
-    - import_tasks: playbooks/wp-cli.yaml
-    - import_tasks: playbooks/zsh.yaml
+    - import_tasks: playbooks/update.yml
+    - import_tasks: playbooks/unzip.yml
+    - import_tasks: playbooks/curl.yml
+    - import_tasks: playbooks/git.yml
+    - import_tasks: playbooks/php7-1.yml
+    - import_tasks: playbooks/apache.yml
+    - import_tasks: playbooks/mysql.yml
+    - import_tasks: playbooks/phpmyadmin.yml
+    - import_tasks: playbooks/vagrant-user.yml
+    - import_tasks: playbooks/wordpress.yml
+    - import_tasks: playbooks/virtualhost.yml
+    - import_tasks: playbooks/wp-cli.yml
+    - import_tasks: playbooks/zsh.yml
 
 
 
