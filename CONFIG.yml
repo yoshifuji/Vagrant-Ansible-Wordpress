@@ -115,7 +115,7 @@ vms:
   # | ······ Ansible privision
     ansible :
       verbose          : v
-      playbook         : ansible/playbook.yaml
+      playbook         : ansible/playbook.yml
       inventory_path   : ansible/inventory
       host_key_checking: false
       limit            : all
