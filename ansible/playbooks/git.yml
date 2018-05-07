@@ -1,0 +1,14 @@
+---
+# ··············································································
+# ### Install Git
+# ··············································································
+
+- name    : git | Install git
+  apt     :
+    pkg   : git
+    state : latest
+
+- name    : git | Install git-core
+  apt     :
+    pkg   : git-core
+    state : latest
