@@ -12,3 +12,8 @@
   locale_gen:
     name    : en_US.UTF-8
     state   : present
+
+- name      : Fix locale ja_jp.utf-8
+  locale_gen:
+    name    : ja_JP.UTF-8
+    state   : present
